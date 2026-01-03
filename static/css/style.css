@@ -1,0 +1,19 @@
+:root{
+  --bg:#f7f9fc;
+  --card:#ffffff;
+  --accent:#2463eb;
+  --muted:#666;
+}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);margin:0;padding:20px}
+.container{max-width:900px;margin:20px auto;background:var(--card);padding:20px;border-radius:8px;box-shadow:0 4px 20px rgba(2,6,23,0.06)}
+h1{margin-top:0;color:var(--accent)}
+.row{display:flex;flex-direction:column;margin-bottom:12px}
+.row label{font-weight:600;margin-bottom:6px}
+.row input[type=number], .row select{padding:8px;border:1px solid #ddd;border-radius:4px}
+.actions{display:flex;justify-content:flex-end}
+button{background:var(--accent);color:#fff;padding:10px 16px;border:none;border-radius:6px;cursor:pointer}
+table{width:100%;border-collapse:collapse;margin-top:12px}
+table th, table td{padding:8px;border:1px solid #eee;text-align:left}
+.prediction-result{text-align:center;margin:20px 0;padding:20px;border-radius:8px}
+.attack{color:red;font-weight:bold}
+.normal{color:green;font-weight:bold}

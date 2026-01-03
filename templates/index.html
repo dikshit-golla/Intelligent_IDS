@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NSL-KDD Feature Input</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>NSL-KDD Feature Input Form</h1>
+      <form id="kdd-form" action="/predict" method="post">
+        <div class="row">
+          <label>duration</label>
+          <input type="number" name="duration" step="any" required>
+        </div>
+
+        <div class="row">
+          <label>protocol_type</label>
+          <select name="protocol_type" required>
+            {% for p in protocols %}
+            <option value="{{p}}">{{p}}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="row">
+          <label>service</label>
+          <select name="service" required>
+            {% for s in services %}
+            <option value="{{s}}">{{s}}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="row">
+          <label>flag</label>
+          <select name="flag" required>
+            {% for f in flags %}
+            <option value="{{f}}">{{f}}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        {% set binary_fields = ['land','logged_in','root_shell','su_attempted','is_host_login','is_guest_login'] %}
+
+        <div class="row">
+          <label>src_bytes</label>
+          <input type="number" name="src_bytes" step="any" required>
+        </div>
+        <div class="row">
+          <label>dst_bytes</label>
+          <input type="number" name="dst_bytes" step="any" required>
+        </div>
+
+        <div class="row">
+          <label>land</label>
+          <select name="land">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <label>wrong_fragment</label>
+          <input type="number" name="wrong_fragment" step="any" required>
+        </div>
+        <div class="row">
+          <label>urgent</label>
+          <input type="number" name="urgent" step="any" required>
+        </div>
+
+        <div class="row">
+          <label>hot</label>
+          <input type="number" name="hot" step="any" required>
+        </div>
+
+        <div class="row">
+          <label>num_failed_logins</label>
+          <input type="number" name="num_failed_logins" step="any" required>
+        </div>
+
+        <div class="row">
+          <label>logged_in</label>
+          <select name="logged_in">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <label>num_compromised</label>
+          <input type="number" name="num_compromised" step="any" required>
+        </div>
+
+        <div class="row">
+          <label>root_shell</label>
+          <select name="root_shell">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <label>su_attempted</label>
+          <select name="su_attempted">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <label>num_root</label>
+          <input type="number" name="num_root" step="any" required>
+        </div>
+
+        <div class="row">
+          <label>num_file_creations</label>
+          <input type="number" name="num_file_creations" step="any" required>
+        </div>
+
+        <div class="row">
+          <label>num_shells</label>
+          <input type="number" name="num_shells" step="any" required>
+        </div>
+
+        <div class="row">
+          <label>num_access_files</label>
+          <input type="number" name="num_access_files" step="any" required>
+        </div>
+
+        <div class="row">
+          <label>num_outbound_cmds</label>
+          <input type="number" name="num_outbound_cmds" step="any" required>
+        </div>
+
+        <div class="row">
+          <label>is_host_login</label>
+          <select name="is_host_login">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <label>is_guest_login</label>
+          <select name="is_guest_login">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <label>count</label>
+          <input type="number" name="count" step="any" required>
+        </div>
+        <div class="row">
+          <label>srv_count</label>
+          <input type="number" name="srv_count" step="any" required>
+        </div>
+
+        <div class="row">
+          <label>serror_rate</label>
+          <input type="number" name="serror_rate" step="any" required>
+        </div>
+        <div class="row">
+          <label>srv_serror_rate</label>
+          <input type="number" name="srv_serror_rate" step="any" required>
+        </div>
+
+        <div class="row">
+          <label>rerror_rate</label>
+          <input type="number" name="rerror_rate" step="any" required>
+        </div>
+        <div class="row">
+          <label>srv_rerror_rate</label>
+          <input type="number" name="srv_rerror_rate" step="any" required>
+        </div>
+
+        <div class="row">
+          <label>same_srv_rate</label>
+          <input type="number" name="same_srv_rate" step="any" required>
+        </div>
+        <div class="row">
+          <label>diff_srv_rate</label>
+          <input type="number" name="diff_srv_rate" step="any" required>
+        </div>
+
+        <div class="row">
+          <label>srv_diff_host_rate</label>
+          <input type="number" name="srv_diff_host_rate" step="any" required>
+        </div>
+
+        <div class="row">
+          <label>dst_host_count</label>
+          <input type="number" name="dst_host_count" step="any" required>
+        </div>
+        <div class="row">
+          <label>dst_host_srv_count</label>
+          <input type="number" name="dst_host_srv_count" step="any" required>
+        </div>
+
+        <div class="row">
+          <label>dst_host_same_srv_rate</label>
+          <input type="number" name="dst_host_same_srv_rate" step="any" required>
+        </div>
+        <div class="row">
+          <label>dst_host_diff_srv_rate</label>
+          <input type="number" name="dst_host_diff_srv_rate" step="any" required>
+        </div>
+
+        <div class="row">
+          <label>dst_host_same_src_port_rate</label>
+          <input type="number" name="dst_host_same_src_port_rate" step="any" required>
+        </div>
+        <div class="row">
+          <label>dst_host_srv_diff_host_rate</label>
+          <input type="number" name="dst_host_srv_diff_host_rate" step="any" required>
+        </div>
+
+        <div class="row">
+          <label>dst_host_serror_rate</label>
+          <input type="number" name="dst_host_serror_rate" step="any" required>
+        </div>
+        <div class="row">
+          <label>dst_host_srv_serror_rate</label>
+          <input type="number" name="dst_host_srv_serror_rate" step="any" required>
+        </div>
+
+        <div class="row">
+          <label>dst_host_rerror_rate</label>
+          <input type="number" name="dst_host_rerror_rate" step="any" required>
+        </div>
+        <div class="row">
+          <label>dst_host_srv_rerror_rate</label>
+          <input type="number" name="dst_host_srv_rerror_rate" step="any" required>
+        </div>
+
+        <div class="row actions">
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+    <script src="/static/js/main.js"></script>
+  </body>
+</html>

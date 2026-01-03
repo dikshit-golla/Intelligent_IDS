@@ -6,3 +6,6 @@ ipykernel
 scikit-learn
 xgboost
 shap
+Flask
+joblib
+google-generativeai

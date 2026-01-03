@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Intrusion Detection Prediction</h1>
+      
+      <div class="prediction-result">
+        <h2>Prediction: <span class="{% if prediction == 1 %}attack{% else %}normal{% endif %}">
+          {{ "ATTACK" if prediction == 1 else "NORMAL" }}
+        </span></h2>
+        <p>Confidence: {{ "%.2f"|format(confidence) }}%</p>
+      </div>
+      
+      <h3>SHAP Values (Top Contributing Features)</h3>
+      <table>
+        <thead>
+          <tr><th>Feature</th><th>SHAP Value</th></tr>
+        </thead>
+        <tbody>
+        {% for feature, value in shap_values %}
+          <tr><td>{{ feature }}</td><td>{{ "%.3f"|format(value) }}</td></tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      
+      <h3>Agentic AI Summary</h3>
+      <p>{{ ai_summary }}</p>
+      
+      <h3>Input Features</h3>
+      <table>
+        <thead>
+          <tr><th>Feature</th><th>Value</th></tr>
+        </thead>
+        <tbody>
+        {% for k, v in data.items() %}
+          <tr><td>{{k}}</td><td>{{v}}</td></tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      
+      <p><a href="/">Back to form</a></p>
+    </div>
+  </body>
+</html>
