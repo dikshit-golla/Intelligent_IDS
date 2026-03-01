@@ -1,4 +1,4 @@
-numpy
+numpy<2.4
 pandas
 matplotlib
 seaborn
@@ -7,5 +7,6 @@ scikit-learn
 xgboost
 shap
 Flask
+imbalanced-learn
 joblib
 google-generativeai

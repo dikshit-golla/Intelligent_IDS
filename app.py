@@ -52,10 +52,15 @@ def predict():
     except Exception as e:
         return f"Error reading CSV: {e}", 400
 
-    # Ensure correct data types for numeric columns
+    # Ensure correct data types for numeric columns; convert safely and report problems
     for col in numeric_features:
         if col in input_df.columns:
-            input_df[col] = input_df[col].astype(float)
+            # coerce non-convertible values to NaN and then check
+            input_df[col] = pd.to_numeric(input_df[col], errors='coerce')
+            if input_df[col].isna().any():
+                bad_vals = input_df.loc[input_df[col].isna(), col].unique()
+                return (f"Column '{col}' contains non-numeric values: {bad_vals}. "
+                        "Please correct your CSV."), 400
 
     # Perform batch prediction
     preds = model.predict(input_df)

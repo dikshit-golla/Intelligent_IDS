@@ -9,13 +9,18 @@
   <body>
     <div class="container">
       <h1>Upload CSV File of NSL-KDD Features</h1>
-      <p>Please prepare a CSV file where the header row contains all of the feature names used by the model. The full list of columns should be:<br>
-        <code>duration,protocol_type,service,flag,src_bytes,dst_bytes,land,wrong_fragment,urgent,hot,num_failed_logins,logged_in,num_compromised,root_shell,su_attempted,num_root,num_file_creations,num_shells,num_access_files,num_outbound_cmds,is_host_login,is_guest_login,count,srv_count,serror_rate,srv_serror_rate,rerror_rate,srv_rerror_rate,same_srv_rate,diff_srv_rate,srv_diff_host_rate,dst_host_count,dst_host_srv_count,dst_host_same_srv_rate,dst_host_diff_srv_rate,dst_host_same_src_port_rate,dst_host_srv_diff_host_rate,dst_host_serror_rate,dst_host_srv_serror_rate,dst_host_rerror_rate,dst_host_srv_rerror_rate</code>.<br>
-        You may include one or multiple rows; predictions will be made for each entry.</p>
+      <p>Please prepare a CSV file where the header row contains all of the feature names used by the model.
+        <br> These are the columns and include them in the header of the file.<br>
+      duration,protocol_type,service,flag,src_bytes,dst_bytes,land,wrong_fragment,urgent,hot,num_failed_logins,logged_in,
+      num_compromised,root_shell,su_attempted,num_root,num_file_creations,num_shells,num_access_files,num_outbound_cmds,
+      is_host_login,is_guest_login,count,srv_count,serror_rate,srv_serror_rate,rerror_rate,srv_rerror_rate,same_srv_rate,
+      diff_srv_rate,srv_diff_host_rate,dst_host_count,dst_host_srv_count,dst_host_same_srv_rate,dst_host_diff_srv_rate,
+      dst_host_same_src_port_rate,dst_host_srv_diff_host_rate,dst_host_serror_rate,dst_host_srv_serror_rate,
+      dst_host_rerror_rate,dst_host_srv_rerror_rate. <br> <br>
+      You may include one or multiple rows; predictions will be made for each entry.</p>
       <form id="kdd-form" action="/predict" method="post" enctype="multipart/form-data">
-        <div class="row">
-          <label for="data_file">Select CSV file</label>
-          <input type="file" name="data_file" id="data_file" accept=".csv" required>
+        <div class="row1">
+          <label for="data_file">Select CSV file</label><input type="file" name="data_file" id="data_file" accept=".csv" required>
         </div>
         <div class="row">
           <button type="submit">Submit</button>
