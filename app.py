@@ -9,7 +9,7 @@ import google.generativeai as genai
 app = Flask(__name__)
 
 # Configure Gemini AI
-genai.configure(api_key=os.getenv('GEMINI_API_KEY', 'AIzaSyAeZvQHUKMvA4RFYMR2XzWK1ahAtmHbdFI'))  # Replace with your actual API key or set environment variable
+genai.configure(api_key=os.getenv('GEMINI_API_KEY', 'your_api_key'))  # Replace with your actual API key or set environment variable
 
 # Load the trained model
 model_path = os.path.join(os.path.dirname(__file__), 'models', 'xgb_model.pkl')
